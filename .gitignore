@@ -1,0 +1,48 @@
+# Python environments and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets and tokens (never commit)
+.env
+.env.*
+*.token
+.huggingface/
+.cache/
+
+# Model weights and large artifacts
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+
+# Local pipeline outputs (may contain unreleased designs)
+placement-corpus/outputs/
+.DS_Store
+
+# Review output written by run_review.py (may contain unreleased designs)
+placement-reviews/
+
+# Editor, test and build leftovers
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+*.log
+
+# Packaged skill output from package_skill.py
+*.skill
+
+# Keys, certificates and local Bob settings that may hold secrets
+*.pem
+*.key
+.bob/settings/
+.bob/mcp.json
+
+# Test machine output folders
+reviews/

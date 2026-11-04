@@ -1,0 +1,132 @@
+{
+  "skill_name": "carbon-placement-advisor",
+  "_note": "Paths are relative to the skill root. Ids 1-5 are DEVELOPMENT evals on calibration images (answer key: placement-corpus/calibration/smoke/labels.md). Ids 6-9 are the HELD-OUT final exam. Their defect expectations were copied from placement-corpus/held-out/labels.md, which is still a DRAFT: a teammate must answer its open questions (pairings, whether the defects describe the design or an earlier tool run) before these evals are scored. Bob has not seen the held-out images.",
+  "evals": [
+    {
+      "id": 1,
+      "split": "calibration",
+      "prompt": "Review the placement of the components in this screenshot against Carbon. Frame width 1312, exported at 1x. List every problem you find.",
+      "expected_output": "Reports the detached Apply button and the uneven card widths, each with measured pixel evidence, a numbered marker on the annotated PNG, and a Carbon-based fix.",
+      "files": ["../../../placement-corpus/calibration/smoke/bad-01.png"],
+      "expectations": [
+        "Identifies the Apply button as sitting outside the filter row (x about 1152, y about 44)",
+        "Identifies that one of the three cards is wider than the other two (about 510 px against 360 px)",
+        "Gives measured pixel values as evidence for each issue",
+        "Suggests a concrete fix for each issue using Carbon terms (spacing token or column span)",
+        "Produces an annotated PNG with boxes and numbered issue markers",
+        "States the confidence of component types and does not claim a component that was not detected",
+        "Does not report issues on elements that are unchanged from a correct layout (checkbox, dropdowns, status pills)"
+      ]
+    },
+    {
+      "id": 2,
+      "split": "calibration",
+      "prompt": "Is this layout correct? Frame width 1312, 1x export.",
+      "expected_output": "Says the layout is largely correct, reports no major issues, and lists limitations.",
+      "files": ["../../../placement-corpus/calibration/smoke/good-01.png"],
+      "expectations": [
+        "Reports no blocker or major placement issues",
+        "Does not invent a placement problem for the cards, filters or status pills",
+        "Includes a limitations or confidence note (for example that status pills are typed as buttons)",
+        "Produces an annotated PNG with detected boxes"
+      ]
+    },
+    {
+      "id": 3,
+      "split": "calibration",
+      "prompt": "Where should these components go? Review this form screenshot for placement problems. Frame width 1312, exported at 1x.",
+      "expected_output": "Finds the three displaced items in the form and suggests where each should go.",
+      "files": ["../../../placement-corpus/calibration/smoke/bad-05.png"],
+      "expectations": [
+        "Identifies that the Estimated hours field has left its row and column (starts at x about 231 instead of x 328)",
+        "Identifies that the Description field is shifted right and extends past the form's right edge (x 375 to 1271 against x 24 to 920)",
+        "Identifies that the Cancel and Create buttons are at the bottom left instead of right-aligned to the form edge",
+        "Suggests moving each item to the column or edge it should occupy, with pixel targets",
+        "Produces an annotated PNG with numbered markers on the affected components",
+        "Does not flag the three correctly placed top-row fields (Title, Priority, Asset)"
+      ]
+    },
+    {
+      "id": 4,
+      "split": "calibration",
+      "prompt": "Check this form for placement problems. Frame width 1312, 1x export.",
+      "expected_output": "Reports no major issues on a correctly laid out form.",
+      "files": ["../../../placement-corpus/calibration/smoke/good-03.png"],
+      "expectations": [
+        "Reports no blocker or major placement issues",
+        "Does not flag the Cancel and Create buttons, which are right-aligned to the form edge",
+        "Does not flag the three column alignment of the fields",
+        "Includes a confidence or limitations note"
+      ]
+    },
+    {
+      "id": 5,
+      "split": "calibration",
+      "prompt": "Review this inspection checklist for placement problems. Frame width 1312, 1x export. I do not have a corrected version.",
+      "expected_output": "Reports measured findings with hedged wording, because there is no good reference and the intended layout is unknown.",
+      "files": ["../../../placement-corpus/calibration/smoke/bad-03.png"],
+      "expectations": [
+        "Hedges any finding, because the intended layout is unknown (for example says 'appears' or gives a confidence level)",
+        "Notes that the Inspector notes area is much narrower than the other content and the button group sits far to the right (x about 832), hedged, or says it could not measure them",
+        "Does not present the tab label wording ('Mechanical checks' under Electrical) as a placement defect",
+        "Produces an annotated PNG",
+        "Lists regions or elements it could not detect"
+      ]
+    },
+    {
+      "id": 6,
+      "split": "held-out",
+      "prompt": "Review this Figma screenshot for placement problems against Carbon. Tell me the frame width you are assuming.",
+      "expected_output": "Defect-specific expectations to be filled from held-out/labels.md for bad-02.png.",
+      "files": ["../../../placement-corpus/held-out/bad-02.png"],
+      "expectations": [
+        "Identifies the excessive spacing between the Site and Sort by filters (draft label, see held-out/labels.md)",
+        "Identifies that the table spans only about 56 percent of the width, squeezing its columns (draft label)",
+        "States the frame width and export scale it assumed, or asks for them",
+        "Gives measured pixel evidence for every issue it reports",
+        "Produces an annotated PNG with numbered markers",
+        "Includes a confidence or limitations section"
+      ]
+    },
+    {
+      "id": 7,
+      "split": "held-out",
+      "prompt": "Is this layout correct?",
+      "expected_output": "False-positive control on a correct design.",
+      "files": ["../../../placement-corpus/held-out/good-02.png"],
+      "expectations": [
+        "Reports no blocker or major placement issues",
+        "Includes a limitations note",
+        "Produces an annotated PNG with detected boxes"
+      ]
+    },
+    {
+      "id": 8,
+      "split": "held-out",
+      "prompt": "Where should the components on this screen be placed? Exported at 1x.",
+      "expected_output": "Defect-specific expectations to be filled from held-out/labels.md for bad-04.png.",
+      "files": ["../../../placement-corpus/held-out/bad-04.png"],
+      "expectations": [
+        "Identifies that the label input is narrower than the Search In dropdown (draft label, see held-out/labels.md)",
+        "Identifies that the Search button is detached from the filter dropdown (draft label)",
+        "Identifies that the subtitle is centred instead of left-aligned (draft label)",
+        "Does not flag the Clear all filters toolbar button, which is intended",
+        "Suggests a target position, column span or spacing token for each issue",
+        "Does not claim a component that was not detected",
+        "Produces an annotated PNG with numbered markers"
+      ]
+    },
+    {
+      "id": 9,
+      "split": "held-out",
+      "prompt": "Is this layout correct? Exported at 1x.",
+      "expected_output": "False-positive control on a correct design.",
+      "files": ["../../../placement-corpus/held-out/good-04.png"],
+      "expectations": [
+        "Reports no blocker or major placement issues",
+        "Includes a limitations note",
+        "Produces an annotated PNG with detected boxes"
+      ]
+    }
+  ]
+}

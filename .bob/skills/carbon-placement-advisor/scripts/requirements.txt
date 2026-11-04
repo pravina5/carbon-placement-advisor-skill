@@ -1,0 +1,21 @@
+# Python 3.12 required (SAM 3 officially targets 3.12).
+# Versions below mirror the verified working .venv. Re-verify maintenance status,
+# license and known vulnerabilities (for example `pip-audit`) before upgrading or releasing.
+#
+# Install order matters (see https://github.com/benreichman/sam3-mac):
+#   1. pip install torch torchvision
+#   2. pip install "git+https://github.com/facebookresearch/sam3.git@f1647e8d0c1d280991f4d1b7d974c2704537fe66"
+#   3. pip install "git+https://github.com/benreichman/sam3-mac.git@91c7b8b5be9643a1ec4fc52f84538145cc88b14c"
+#      (sam3-mac is NOT on PyPI, so it is pinned to a commit)
+#   4. pip install -r requirements.txt
+torch==2.15.0
+torchvision==0.29.2
+numpy==1.26.4
+pillow==13.0.0
+einops==0.8.2
+opencv-python-headless==4.11.0.86
+scikit-image==0.26.0
+pycocotools==2.0.11
+pandas==3.0.6
+psutil==7.2.2
+huggingface_hub==2.4.0

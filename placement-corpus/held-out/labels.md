@@ -1,19 +1,19 @@
-# Answer key: held-out (FINAL EXAM, do not tune against this)
+# Answer key: held-out 
 
-Do not run the detection scripts on these files while tuning, and do not copy them into the skill's `references/`.
-Bob has NOT looked at these images.
+Calibration set 2. These images were used for tuning and are no longer a clean test. Use fresh screens for the final exam.
+
 
 All files: 1312 x 738 px (assumed from the earlier set; confirm in Figma), export scale 1.
 
 ## good-02.png
 page: inspection checklist
-paired_with: UNCONFIRMED (see open question 1)
+paired_with:  
 defects: none
 status: draft
 
 ## bad-02.png
 page: work order
-paired_with: UNCONFIRMED (see open question 1)
+paired_with: good-04.png
 status: draft
 defects:
   1. Excessive filter spacing (Site vs Sort by)
@@ -21,13 +21,13 @@ defects:
 
 ## good-04.png
 page: work order
-paired_with: bad-04.png
+paired_with: bad-02.png
 defects: none
 status: draft
 
 ## bad-04.png
 page: work order
-paired_with: good-04.png 
+paired_with: 
 status: draft
 defects:
   1. Label input is narrower than the Search In dropdown

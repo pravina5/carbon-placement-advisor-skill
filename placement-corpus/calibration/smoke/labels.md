@@ -45,7 +45,6 @@ defects:
 ## bad-03.png
 page: inspection-checklist
 paired_with: none (no good twin in the set)
-status: NEEDS TEAMMATE. Bob cannot know the intended layout without a good version.
 defects:
   1. Button group (Save draft, Submit inspection) ends at x=1074, beyond the tab strip edge x=1034
   2. Inspector notes area is narrow (x=24..277) compared with the 1010 px tab strip
